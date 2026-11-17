@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mesopotamia | History & Mythology</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@400;500;600&display=swap');
+
+        :root {
+            --bg-night: #0B0F19;
+            --surface-card: #151C2C;
+            --primary-gold: #D4A537;
+            --lapis-blue: #1E3A8A;
+            --accent-clay: #B5651D;
+            --text-primary: #F5EFE0;
+            --text-muted: #94A3B8;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-night);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: rgba(11, 15, 25, 0.95);
+            border-bottom: 1px solid rgba(212, 165, 55, 0.3);
+            padding: 1.2rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .brand {
+            font-family: 'Cinzel', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary-gold);
+            text-decoration: none;
+            letter-spacing: 2px;
+        }
+
+        nav {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            padding: 0.5rem 0.8rem;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-gold);
+            background-color: rgba(212, 165, 55, 0.1);
+        }
+
+        main {
+            max-width: 1150px;
+            margin: 0 auto;
+            padding: 3rem 5%;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--primary-gold);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--accent-clay);
+            padding-bottom: 0.5rem;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 4rem 1rem;
+            background: radial-gradient(circle at center, #151C2C 0%, #0B0F19 70%);
+            border-radius: 16px;
+            margin-bottom: 4rem;
+            border: 1px solid rgba(212, 165, 55, 0.2);
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto 2rem auto;
+            font-size: 1.1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-gold);
+            color: var(--bg-night);
+            padding: 0.8rem 1.8rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .btn:hover {
+            background-color: #e5b749;
+            transform: translateY(-2px);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .card {
+            background-color: var(--surface-card);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: transform 0.3s, border-color 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            border-color: var(--primary-gold);
+        }
+
+        .card-banner {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            overflow: hidden;
+            border-bottom: 2px solid var(--primary-gold);
+            background: #151C2C;
+        }
+
+        .card-banner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .card-banner img[alt] {
+            font-size: 0.9rem;
+        }
+
+        .lamassu-image {
+            object-fit: cover !important;
+            object-position: 70% 12%;
+            transform: none;
+        }
+
+        .card-body {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            justify-content: space-between;
+        }
+
+        .card h3 {
+            font-size: 1.35rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .card .era {
+            font-size: 0.85rem;
+            color: var(--primary-gold);
+            margin-bottom: 0.8rem;
+            display: block;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .detail-header {
+            background-color: var(--lapis-blue);
+            padding: 1.5rem 2rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            border-left: 5px solid var(--primary-gold);
+        }
+
+        .detail-header h1 {
+            font-size: 2rem;
+            color: #FFFFFF;
+            margin-bottom: 0.3rem;
+        }
+
+        .detail-header p {
+            color: var(--text-muted);
+        }
+
+        .article-text {
+            font-size: 1.05rem;
+            color: var(--text-primary);
+            margin-bottom: 2.5rem;
+            text-align: justify;
+        }
+
+        .back-btn {
+            background: transparent;
+            color: var(--primary-gold);
+            border: 1px solid var(--primary-gold);
+            padding: 0.5rem 1.2rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .back-btn:hover {
+            background-color: rgba(212, 165, 55, 0.15);
+        }
+
+        .deity-badge {
+            display: inline-block;
+            background-color: rgba(212, 165, 55, 0.15);
+            color: #D4A537;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-bottom: 0.6rem;
+            border: 1px solid rgba(212, 165, 55, 0.4);
+        }
+
+        .deity-card {
+            padding: 0 !important;
+        }
+
+        .deity-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+            border-bottom: 2px solid var(--primary-gold);
+        }
+
+        .deity-card-content {
+            padding: 1.5rem;
+        }
+
+        .page-view {
+            display: none;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        .page-view.active-page {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: 4rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- شريط التنقل العلوي -->
+    <header>
+        <a href="#home" class="brand" onclick="navigateTo('home')">MESOPOTAMIA</a>
+        <nav id="main-nav">
+            <a href="#home" data-target="home" class="active" onclick="navigateTo('home')">Home</a>
+            <a href="#sumer" data-target="sumer" onclick="navigateTo('sumer')">Sumer</a>
+            <a href="#babylon" data-target="babylon" onclick="navigateTo('babylon')">Babylon</a>
+            <a href="#assyria" data-target="assyria" onclick="navigateTo('assyria')">Assyria</a>
+            <a href="#mythology" data-target="mythology" onclick="navigateTo('mythology')">Mythology & Deities</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- ==================== 1. صفحة البداية (Home) ==================== -->
+        <div id="home" class="page-view active-page">
+            <section class="hero">
+                <h1>Ancient Iraq: History & Mythology</h1>
+                <p>Walk through the Cradle of Civilization between the Tigris and Euphrates—where human writing, codified law, monumental ziggurats, and the world's oldest deities were born.</p>
+                <a href="#mythology" class="btn" onclick="navigateTo('mythology')">Explore Pantheon & Myths</a>
+            </section>
+
+            <h2>Great Civilizations</h2>
+            <div class="grid">
+                <!-- بطاقة السومريين -->
+                <article class="card">
+                    <div class="card-banner">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Nasiriyah_banner_Ziggurat_of_Ur.png" alt="Ziggurat of Ur in southern Iraq">
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            <span class="era">3500 – 2000 BC</span>
+                            <h3>The Cradle of Cities</h3>
+                            <p>The pioneers of cuneiform script, urban planning in Uruk and Ur, base-60 mathematics, and monumental mud-brick ziggurats.</p>
+                        </div>
+                        <a href="#sumer" class="btn" onclick="navigateTo('sumer')" style="text-align: center;">Explore Sumer</a>
+                    </div>
+                </article>
+
+                <!-- بطاقة البابليين -->
+                <article class="card">
+                    <div class="card-banner">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/Ishtar_Gate_at_Berlin_Museum.jpg" alt="Reconstructed Ishtar Gate of Babylon at the Pergamon Museum">
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            <span class="era">1894 – 539 BC</span>
+                            <h3>Law & Architecture</h3>
+                            <p>Home to King Hammurabi's legal code, the glazed blue Ishtar Gate, advanced astronomy, and the legendary Hanging Gardens.</p>
+                        </div>
+                        <a href="#babylon" class="btn" onclick="navigateTo('babylon')" style="text-align: center;">Explore Babylon</a>
+                    </div>
+                </article>
+
+                <!-- بطاقة الآشوريين -->
+                <article class="card">
+                    <div class="card-banner">
+                        <img class="lamassu-image" src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Lamassu_%28Winged_Bull%29_of_Throne_Room_of_Palace_of_Sargon_II%2C_Khorsabad%2C_Assyria_%2828015962290%29.jpg" alt="Assyrian lamassu winged bull from Khorsabad">
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            <span class="era">2500 – 609 BC</span>
+                            <h3>Power & Knowledge</h3>
+                            <p>A superpower of the ancient Near East, renowned for Nineveh, the Royal Library of Ashurbanipal, and colossal Lamassu guardians.</p>
+                        </div>
+                        <a href="#assyria" class="btn" onclick="navigateTo('assyria')" style="text-align: center;">Explore Assyria</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+
+        <!-- ==================== 2. صفحة السومريين (Sumer) ==================== -->
+        <div id="sumer" class="page-view">
+            <a href="#home" class="back-btn" onclick="navigateTo('home')">← Back to Home</a>
+            <div class="detail-header">
+                <h1>Sumerian Civilization (3500 – 2000 BC)</h1>
+                <p>The Undisputed Cradle of Urban Civilization in Southern Iraq</p>
+            </div>
+            <p class="article-text">
+                Emerging in the southern alluvial plains of Mesopotamia between the Tigris and Euphrates rivers, the Sumerians revolutionized human history by inventing <strong>cuneiform script</strong>—the world's first system of writing—imprinted on clay tablets to record trade, laws, and literature. They built the world's first true urban centers, including <strong>Uruk, Ur, Eridu, and Lagash</strong>, characterized by monumental mud-brick ziggurats that reached toward the heavens as dwelling places for patron deities. Sumerian intellectuals laid the foundations of mathematics and astronomy, introducing the sexagesimal (base-60) numerical system that still governs our 60-minute hours and 360-degree circles today.
+            </p>
+        </div>
+
+        <!-- ==================== 3. صفحة بابل (Babylon) ==================== -->
+        <div id="babylon" class="page-view">
+            <a href="#home" class="back-btn" onclick="navigateTo('home')">← Back to Home</a>
+            <div class="detail-header">
+                <h1>Babylonian Empire (1894 – 539 BC)</h1>
+                <p>The Jewel of Science, Architecture, and Codified Justice</p>
+            </div>
+            <p class="article-text">
+                Rising along the banks of the Euphrates River, the Babylonian Empire evolved into a legendary center of culture, science, and monumental law. Best known under the reign of <strong>King Hammurabi</strong> (1792–1750 BC), Babylon gave humanity one of the earliest and most complete written legal codes in history, famously inscribed on a towering diorite stele. Later, under <strong>Nebuchadnezzar II</strong>, Babylon became renowned for its breathtaking urban architecture, highlighted by the magnificent <strong>Ishtar Gate</strong> adorned with brilliant glazed blue bricks and reliefs of dragons, alongside the fabled Hanging Gardens.
+            </p>
+        </div>
+
+        <!-- ==================== 4. صفحة آشور (Assyria) ==================== -->
+        <div id="assyria" class="page-view">
+            <a href="#home" class="back-btn" onclick="navigateTo('home')">← Back to Home</a>
+            <div class="detail-header">
+                <h1>Assyrian Empire (2500 – 609 BC)</h1>
+                <p>Masters of Engineering, Statecraft, and Imperial Knowledge</p>
+            </div>
+            <p class="article-text">
+                Originating in northern Mesopotamia along the upper Tigris River, the Assyrian Empire grew from the city-state of <strong>Ashur</strong> into the largest empire the world had yet seen, stretching from the Persian Gulf to Egypt. With majestic capitals at <strong>Nimrud, Khorsabad, and Nineveh</strong>, the Assyrians pioneered paved road networks, imperial postal systems, and sophisticated siege engineering. King <strong>Ashurbanipal</strong> assembled the world's first systematically organized library in Nineveh, preserving over 30,000 cuneiform tablets—including the surviving text of the Epic of Gilgamesh.
+            </p>
+        </div>
+
+        <!-- ==================== 5. صفحة الميثولوجيا (Mythology) ==================== -->
+        <div id="mythology" class="page-view">
+            <a href="#home" class="back-btn" onclick="navigateTo('home')">← Back to Home</a>
+            <div class="detail-header">
+                <h1>Mesopotamian Mythology & Pantheon</h1>
+                <p>Cosmic Deities, Creation Epics, and the Quest for Immortality</p>
+            </div>
+            <p class="article-text">
+                Mesopotamian religion is the oldest recorded belief system in human history. The ancients viewed the cosmos as an ordered state governed by an assembly of anthropomorphic deities known as the <strong>Anunnaki</strong>, where every natural force, city, and human craft had its divine patron. Through foundational texts like the <strong>Enūma Eliš</strong> (The Babylonian Epic of Creation) and the <strong>Epic of Gilgamesh</strong>, Mesopotamian scribes explored timeless themes of creation, the Great Flood, mortality, and friendship.
+            </p>
+
+            <h2>Principal Deities of the Pantheon</h2>
+            <div class="grid">
+                <article class="card deity-card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/57/God_Ea%2C_also_Enki%2C_holding_a_cup_with_overflowing_water._From_Iraq._Pergamon_Museum.jpg" alt="Ancient relief of Enki or Ea holding a cup of overflowing water">
+                    <div class="deity-card-content">
+                        <span class="deity-badge">God of Wisdom & Freshwater</span>
+                        <h3>Enki (Ea)</h3>
+                        <p style="color: var(--text-muted); margin-top: 0.5rem;">Lord of the subterranean freshwater ocean (Abzu), patron of Eridu, wisdom, magic, crafts, and creator/protector of humanity during the Great Flood.</p>
+                    </div>
+                </article>
+                <article class="card deity-card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Terracotta_plaque_showing_the_Goddess_Ishtar_standing_on_a_lion._From_Iraq._18th-17th_century_BCE._Pergamon_Museum.jpg" alt="Ancient terracotta plaque showing the goddess Ishtar standing on a lion">
+                    <div class="deity-card-content">
+                        <span class="deity-badge">Goddess of Love & War</span>
+                        <h3>Inanna (Ishtar)</h3>
+                        <p style="color: var(--text-muted); margin-top: 0.5rem;">The most prominent female deity in Mesopotamia, associated with the planet Venus, fertility, political power, and her famous descent into the Underworld.</p>
+                    </div>
+                </article>
+                <article class="card deity-card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Tablet_of_Shamash_relief.jpg" alt="The Tablet of Shamash depicting the Babylonian sun god">
+                    <div class="deity-card-content">
+                        <span class="deity-badge">God of the Sun & Justice</span>
+                        <h3>Utu (Shamash)</h3>
+                        <p style="color: var(--text-muted); margin-top: 0.5rem;">The all-seeing solar deity who traverses the sky daily, dispelling darkness and upholding truth, law, and moral justice—inspiring Hammurabi's Code.</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>Mesopotamian Heritage & Mythology Archive — Built with HTML & CSS</p>
+    </footer>
+
+    <!-- سكربت التنقل بين الصفحات -->
+    <script>
+        function navigateTo(pageId) {
+            document.querySelectorAll('.page-view').forEach(page => {
+                page.classList.remove('active-page');
+            });
+
+            const target = document.getElementById(pageId);
+            if (target) {
+                target.classList.add('active-page');
+            }
+
+            document.querySelectorAll('#main-nav a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('data-target') === pageId) {
+                    link.classList.add('active');
+                }
+            });
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        const initialPage = window.location.hash.replace('#', '') || 'home';
+        if (document.getElementById(initialPage)) {
+            navigateTo(initialPage);
+        }
+    </script>
+</body>
+</html>
